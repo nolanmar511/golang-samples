@@ -21,7 +21,6 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"log"
 	"net"
 	"time"
 
@@ -50,14 +49,14 @@ func main() {
 		ProjectID:      *projectID,
 		MutexProfiling: true,
 	}); err != nil {
-		log.Fatalf("failed to start profiler: %v", err)
+		glog.Exitf("Failed to start profiler: %v", err)
 	}
 
 	server := grpc.NewServer()
 	shakesapp.RegisterShakespeareServiceServer(server, shakesapp.NewServer())
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", *port))
 	if err != nil {
-		glog.Exitf("failed to listen: %v", err)
+		glog.Exitf("Failed to listen: %v", err)
 	}
 	go server.Serve(lis)
 
