@@ -32,7 +32,7 @@ import (
 )
 
 var (
-	version      = flag.String("version", "original", "application version")
+	version      = flag.String("version", "read-once", "application version")
 	projectID    = flag.String("project_id", "", "project ID to run profiler with; only required when running outside of GCP.")
 	port         = flag.Int("port", 7788, "service port")
 	numReqs      = flag.Int("num_requests", 20, "number of requests to simulate")
