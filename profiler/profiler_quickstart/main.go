@@ -47,6 +47,7 @@ func main() {
 		NoAllocProfiling:     true,
 		NoGoroutineProfiling: true,
 		DebugLogging:         true,
+		APIAddr: "test-cloudprofiler.sandbox.googleapis.com:443",
 		// ProjectID must be set if not running on GCP.
 		// ProjectID: "my-project",
 	})
